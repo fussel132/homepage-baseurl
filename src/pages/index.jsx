@@ -107,7 +107,7 @@ function Index({ initialSettings, fallback }) {
           setStale(true);
           localStorage.setItem("hash", hashData.hash);
 
-          fetch("/api/revalidate").then((res) => {
+          fetch("/admin/api/revalidate").then((res) => {
             if (res.ok) {
               window.location.reload();
             }
@@ -178,9 +178,9 @@ function Home({ initialSettings }) {
     setSettings(initialSettings);
   }, [initialSettings, setSettings]);
 
-  const { data: services } = useSWR("/api/services");
-  const { data: bookmarks } = useSWR("/api/bookmarks");
-  const { data: widgets } = useSWR("/api/widgets");
+  const { data: services } = useSWR("/admin/api/services");
+  const { data: bookmarks } = useSWR("/admin/api/bookmarks");
+  const { data: widgets } = useSWR("/admin/api/widgets");
 
   const servicesAndBookmarks = [
     ...services.map((sg) => sg.services).flat(),
@@ -378,7 +378,7 @@ function Home({ initialSettings }) {
         <meta name="theme-color" content={themes[settings.color || "slate"][settings.theme || "dark"]} />
       </Head>
 
-      <Script src="/api/config/custom.js" />
+      <Script src="/admin/api/config/custom.js" />
 
       <div className="relative container m-auto flex flex-col justify-start z-10 h-full">
         <QuickLaunch
