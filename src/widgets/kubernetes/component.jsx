@@ -10,11 +10,11 @@ export default function Component({ service }) {
   const { widget } = service;
   const podSelectorString = widget.podSelector !== undefined ? `podSelector=${widget.podSelector}` : "";
   const { data: statusData, error: statusError } = useSWR(
-    `/api/kubernetes/status/${widget.namespace}/${widget.app}?${podSelectorString}`,
+    `/admin/api/kubernetes/status/${widget.namespace}/${widget.app}?${podSelectorString}`,
   );
 
   const { data: statsData, error: statsError } = useSWR(
-    `/api/kubernetes/stats/${widget.namespace}/${widget.app}?${podSelectorString}`,
+    `/admin/api/kubernetes/stats/${widget.namespace}/${widget.app}?${podSelectorString}`,
   );
 
   if (statsError || statusError) {

@@ -3,7 +3,7 @@ import useSWR from "swr";
 
 export default function SiteMonitor({ groupName, serviceName, style }) {
   const { t } = useTranslation();
-  const { data, error } = useSWR(`/api/siteMonitor?${new URLSearchParams({ groupName, serviceName }).toString()}`, {
+  const { data, error } = useSWR(`/admin/api/siteMonitor?${new URLSearchParams({ groupName, serviceName }).toString()}`, {
     refreshInterval: 30000,
   });
 

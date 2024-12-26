@@ -25,7 +25,7 @@ export function formatProxyUrl(widget, endpoint, queryParams) {
   if (queryParams) {
     params.append("query", JSON.stringify(queryParams));
   }
-  return `/api/services/proxy?${params.toString()}`;
+  return `/admin/api/services/proxy?${params.toString()}`;
 }
 
 export function asJson(data) {

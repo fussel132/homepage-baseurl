@@ -55,10 +55,10 @@ export async function getStaticProps() {
       props: {
         initialSettings: settings,
         fallback: {
-          "/api/services": services,
-          "/api/bookmarks": bookmarks,
-          "/api/widgets": widgets,
-          "/api/hash": false,
+          "/admin/api/services": services,
+          "/admin/api/bookmarks": bookmarks,
+          "/admin/api/widgets": widgets,
+          "/admin/api/hash": false,
         },
         ...(await serverSideTranslations(settings.language ?? "en")),
       },
@@ -71,10 +71,10 @@ export async function getStaticProps() {
       props: {
         initialSettings: {},
         fallback: {
-          "/api/services": [],
-          "/api/bookmarks": [],
-          "/api/widgets": [],
-          "/api/hash": false,
+          "/admin/api/services": [],
+          "/admin/api/bookmarks": [],
+          "/admin/api/widgets": [],
+          "/admin/api/hash": false,
         },
         ...(await serverSideTranslations("en")),
       },

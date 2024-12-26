@@ -21,7 +21,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
   const [url, setUrl] = useState(null);
   const [searchSuggestions, setSearchSuggestions] = useState([]);
 
-  const { data: widgets } = useSWR("/api/widgets");
+  const { data: widgets } = useSWR("/admin/api/widgets");
   const searchWidget = Object.values(widgets).find((w) => w.type === "search");
 
   let searchProvider;
@@ -155,7 +155,7 @@ export default function QuickLaunch({ servicesAndBookmarks, searchString, setSea
         if (searchProvider.showSearchSuggestions && searchProvider.suggestionUrl) {
           if (searchString.trim() !== searchSuggestions[0]?.trim()) {
             fetch(
-              `/api/search/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${
+              `/admin/api/search/searchSuggestion?query=${encodeURIComponent(searchString)}&providerName=${
                 searchProvider.name ?? "Custom"
               }`,
               { signal: abortController.signal },

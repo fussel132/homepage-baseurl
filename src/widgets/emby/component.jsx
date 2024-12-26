@@ -224,7 +224,7 @@ export default function Component({ service }) {
         sessionId: session.Id,
       }),
     );
-    const url = `/api/services/proxy?${params.toString()}`;
+    const url = `/admin/api/services/proxy?${params.toString()}`;
     await fetch(url, {
       method: "POST",
     }).then(() => {

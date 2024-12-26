@@ -17,7 +17,7 @@ export default function Widget({ options }) {
   const { color } = options;
 
   const { data, error } = useSWR(
-    `/api/widgets/stocks?${new URLSearchParams({ lang: i18n.language, ...options }).toString()}`,
+    `/admin/api/widgets/stocks?${new URLSearchParams({ lang: i18n.language, ...options }).toString()}`,
   );
 
   if (error || data?.error) {

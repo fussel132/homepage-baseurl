@@ -97,7 +97,7 @@ export default function Search({ options }) {
       query.trim().length > 0 &&
       query.trim() !== searchSuggestions[0]
     ) {
-      fetch(`/api/search/searchSuggestion?query=${encodeURIComponent(query)}&providerName=${selectedProvider.name}`, {
+      fetch(`/admin/api/search/searchSuggestion?query=${encodeURIComponent(query)}&providerName=${selectedProvider.name}`, {
         signal: abortController.signal,
       })
         .then(async (searchSuggestionResult) => {
