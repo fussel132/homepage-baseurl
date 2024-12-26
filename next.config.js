@@ -9,6 +9,7 @@ const nextConfig = {
     unoptimized: true,
   },
   i18n,
+  basePath: '/admin',
 };
 
 module.exports = nextConfig;
