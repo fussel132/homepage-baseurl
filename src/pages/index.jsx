@@ -85,8 +85,8 @@ export async function getStaticProps() {
 function Index({ initialSettings, fallback }) {
   const windowFocused = useWindowFocus();
   const [stale, setStale] = useState(false);
-  const { data: errorsData } = useSWR("/api/validate");
-  const { data: hashData, mutate: mutateHash } = useSWR("/api/hash");
+  const { data: errorsData } = useSWR("/admin/api/validate");
+  const { data: hashData, mutate: mutateHash } = useSWR("/admin/api/hash");
 
   useEffect(() => {
     if (windowFocused) {
